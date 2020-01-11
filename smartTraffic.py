@@ -1,9 +1,8 @@
-from pySearchImage.ShapeDetector import ShapeDetector
-from pySearchImage.ColorLabeler import ColorLabeler
+from pyEngine.ColorLabeler import ColorLabeler
+from config import *
 import argparse
 import imutils
 import cv2
-from config import *
 
 
 def greenLight(roadSide, image, x, y, total):
@@ -59,7 +58,6 @@ cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
                         cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
 
-sd = ShapeDetector()
 cl = ColorLabeler()
 
 
@@ -68,7 +66,6 @@ for c in cnts:
     cX = int((M["m10"] / M["m00"]) * ratio)
     cY = int((M["m01"] / M["m00"]) * ratio)
 
-    shape = sd.detect(c)
     color = cl.label(lab, c)
 
     if (color == 'road'):
@@ -117,10 +114,7 @@ for c in cnts:
     c = c.astype("float")
     c *= ratio
     c = c.astype("int")
-    # text = "{} {}".format(color, shape)
-    # text = "{} {}".format(cX, cY)
     text = "{}".format(color)
-    # cv2.drawContours(image, [c], -1, (0, 255, 0), 2)
     cv2.putText(image, text, (cX - 9, cY + 7),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 
