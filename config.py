@@ -36,7 +36,7 @@ bottomRoad = {
 
 totalVehicle = 0
 
-cycleTime = 120
+cycleTime = 110
 # cycleTime = 100 if totalVehicle < 15 else 120
 motorcycleValue = 1
 carValue = 3
