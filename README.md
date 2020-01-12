@@ -1,4 +1,4 @@
-# Python-SmartTraffic
+# Python-SmartTraffic ©KevinYobeth
 ## Description
 A simple python script that scans the traffic and return the best green light duration for the selected scene. You can custom create the scene using the sceneGenerator.psd or using the clean plate given. Use the color red (#eb4343, 235, 67, 67) for car, blue (#50a3e9, 80, 163, 223) for motorcycle and green (#69e850, 105, 232, 80)
 
